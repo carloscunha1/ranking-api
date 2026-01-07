@@ -10,5 +10,11 @@ export async function getRanking(req: Request, res: Response) {
     orderBy: { score: "desc" },
   });
 
-  res.json(users);
+  const rankedUsers = users.map((user, index) => ({
+    rank: index + 1,
+    name: user.name,
+    score: user.score
+  }));
+
+  res.json(rankedUsers);
 }
