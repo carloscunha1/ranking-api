@@ -22,11 +22,15 @@
   },
   "homepage": "https://github.com/carloscunha1/ranking-api#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "express": "^5.2.1",
+    "ioredis": "^5.8.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "nodemon": "^3.1.11",
+    "prisma": "^7.2.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }

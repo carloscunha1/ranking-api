@@ -1,9 +1,8 @@
-import express from "express"
+import express from "express";
+import { getRanking } from "./services/listRanking";
 
 const app = express();
 
-app.get("/ranking", (req, res) => {
-  res.send("Server is running")
-})
+app.get("/ranking", getRanking);
 
 export default app;
