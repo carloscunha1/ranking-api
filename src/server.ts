@@ -1,8 +1,7 @@
 import express from "express";
-import { getRanking } from "./services/listRanking";
-
+import { rankingController } from "./controllers/ranking.controller";
 const app = express();
 
-app.get("/ranking", getRanking);
+app.get("/ranking", rankingController);
 
 export default app;

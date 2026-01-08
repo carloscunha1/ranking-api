@@ -1,7 +1,6 @@
-import { Request, Response } from "express";
 import { prisma } from "../client/prisma";
 
-export async function getRanking(req: Request, res: Response) {
+export async function generateRanking() {
   const users = await prisma.user.findMany({
     select: {
       name: true,
@@ -16,5 +15,5 @@ export async function getRanking(req: Request, res: Response) {
     score: user.score
   }));
 
-  res.json(rankedUsers);
+  return rankedUsers;
 }
