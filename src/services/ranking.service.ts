@@ -9,11 +9,19 @@ export async function generateRanking() {
     orderBy: { score: "desc" },
   });
 
-  const rankedUsers = users.map((user, index) => ({
-    rank: index + 1,
-    name: user.name,
-    score: user.score
-  }));
+  let currentRank = 1;
+
+  const rankedUsers = users.map((user, index) => {
+    if (index > 0 && user.score < users[index - 1].score) {
+      currentRank = index + 1;
+    }
+
+    return {
+      rank: currentRank,
+      name: user.name,
+      score: user.score,
+    };
+  });
 
   return rankedUsers;
 }
